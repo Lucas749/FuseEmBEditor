@@ -73,7 +73,6 @@ LABEL_KEY = "label"
 TEXT_KEY = "text"
 
 DNA_BASES = ("A", "C", "G", "T")
-FORECAST_BASES = ("G", "A", "C", "T")
 BEDICT_BASES = ("A", "C", "T", "G")
 GRNA_LENGTH = 20
 DEEPBASE_GRNA_START = 10

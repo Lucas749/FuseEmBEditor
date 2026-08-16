@@ -73,10 +73,10 @@ CRISPRon 1.0 code and models:
 fuseembeditor-crispron-scores --output benchmark/data/crispron_scores.csv.gz
 ```
 
-Copied upstream files under `benchmark/models` are unchanged. Package initializers and standalone
-compatibility adapters under `benchmark/adapters` provide the integration layer:
+Copied upstream source files under `benchmark/models` are unchanged. Package initializers and
+standalone compatibility adapters under `benchmark/adapters` provide the integration layer:
 
-- `forecast_be` — [FORECasT-BE](https://github.com/ananth-pallaseni/FORECasT-BE), original source and pretrained models
+- `forecast_be` — [FORECasT-BE](https://github.com/ananth-pallaseni/FORECasT-BE), original feature code with a retrained global estimator
 - `deepbaseeditor` — [DeepBaseEditor](https://github.com/MyungjaeSong/Paired-Library/tree/DeepCRISPR.info/DeepBaseEditor), TensorFlow compatibility adapter
 - `igrna_abe` — [igRNA-ABE](https://github.com/shuaishuaigu/Igrna-abe), original feature code and model architecture
 - `bedict_v2` — [BEDICT-V2](https://github.com/uzh-dqbm-cmi/BEDICT-V2), original `PredictionCNN`

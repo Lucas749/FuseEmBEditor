@@ -4,7 +4,6 @@ import csv
 import gzip
 
 import numpy as np
-from Bio.SeqUtils import MeltingTemp
 
 from fuseembeditor.data import parse_fields, read_records, split_path
 
@@ -26,7 +25,6 @@ from .config import (
     DEEPBASEEDITOR,
     DEEPBE_PAM,
     DNA_BASES,
-    FORECAST_BASES,
     FORECAST_BE,
     GRNA_KEY,
     GRNA_LENGTH,
@@ -51,10 +49,9 @@ def one_hot(sequence, bases):
 
 
 def forecast_features(grna):
-    features = [grna.count(base) for base in FORECAST_BASES]
-    for base in grna:
-        features.extend(float(base == candidate) for candidate in FORECAST_BASES)
-    features.append(MeltingTemp.Tm_NN(grna))
+    from .models.forecast_be.forecast_be import featurize_20nt_target
+
+    _, features = featurize_20nt_target(grna)
     return np.asarray(features, dtype=np.float32)
 
 

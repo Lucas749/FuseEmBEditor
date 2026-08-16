@@ -71,7 +71,7 @@ benchmark = [
     "models/*/*.json",
     "models/*/LICENSE",
     "models/*/COPYING",
-    "models/forecast_be/saved_models/*/*.joblib",
+    "models/forecast_be/saved_models/.gitkeep",
     "models/crispron_be/licenses/*",
     "models/crispron_be/crisproff-1.1.2/*",
     "models/crispron_be/crispron-1.0/*",
