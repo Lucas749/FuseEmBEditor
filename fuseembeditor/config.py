@@ -4,8 +4,8 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
-EMBEDDING_DIR = PROJECT_ROOT / "embeddings"
-RUN_DIR = PROJECT_ROOT / "runs"
+EMBEDDING_DIR = Path("embeddings")
+RUN_DIR = Path("runs")
 
 ALL_EDITORS_DATASET = "ALL_editors"
 COMBINED_DATASET_TOKEN = "combined"

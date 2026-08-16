@@ -1,0 +1,144 @@
+{
+  "PAM_variant_NG_model.h5": {
+    "file": "PAM_variant_NG_model.h5",
+    "total_params": 90209701,
+    "layers": [
+      {
+        "index": 0,
+        "type": "InputLayer",
+        "name": "input_1",
+        "shape": "[(None, 30, 4)]"
+      },
+      {
+        "index": 1,
+        "type": "Conv1D",
+        "name": "conv1d",
+        "filters": 2000,
+        "kernel_size": 7,
+        "padding": "same",
+        "activation": "relu",
+        "params": 58000
+      },
+      {
+        "index": 2,
+        "type": "AveragePooling1D",
+        "name": "average_pooling1d",
+        "pool_size": 1,
+        "strides": 1
+      },
+      {
+        "index": 3,
+        "type": "Flatten",
+        "name": "flatten",
+        "output_shape": "(None, 60000)"
+      },
+      {
+        "index": 4,
+        "type": "Dense",
+        "name": "dense",
+        "units": 1500,
+        "activation": "relu",
+        "params": 90001500
+      },
+      {
+        "index": 5,
+        "type": "Dropout",
+        "name": "dropout",
+        "rate": 0.3
+      },
+      {
+        "index": 6,
+        "type": "Dense",
+        "name": "dense_1",
+        "units": 100,
+        "activation": "relu",
+        "params": 150100
+      },
+      {
+        "index": 7,
+        "type": "Dropout",
+        "name": "dropout_1",
+        "rate": 0.3
+      },
+      {
+        "index": 8,
+        "type": "Dense",
+        "name": "dense_2",
+        "units": 1,
+        "activation": "linear",
+        "params": 101
+      }
+    ]
+  },
+  "PAM_variant_NRRH_model.h5": {
+    "file": "PAM_variant_NRRH_model.h5",
+    "total_params": 90233701,
+    "layers": [
+      {
+        "index": 0,
+        "type": "InputLayer",
+        "name": "input_1",
+        "shape": "[(None, 30, 4)]"
+      },
+      {
+        "index": 1,
+        "type": "Conv1D",
+        "name": "conv1d",
+        "filters": 2000,
+        "kernel_size": 10,
+        "padding": "same",
+        "activation": "relu",
+        "params": 82000
+      },
+      {
+        "index": 2,
+        "type": "AveragePooling1D",
+        "name": "average_pooling1d",
+        "pool_size": 1,
+        "strides": 1
+      },
+      {
+        "index": 3,
+        "type": "Flatten",
+        "name": "flatten",
+        "output_shape": "(None, 60000)"
+      },
+      {
+        "index": 4,
+        "type": "Dense",
+        "name": "dense",
+        "units": 1500,
+        "activation": "relu",
+        "params": 90001500
+      },
+      {
+        "index": 5,
+        "type": "Dropout",
+        "name": "dropout",
+        "rate": 0.3
+      },
+      {
+        "index": 6,
+        "type": "Dense",
+        "name": "dense_1",
+        "units": 100,
+        "activation": "relu",
+        "params": 150100
+      },
+      {
+        "index": 7,
+        "type": "Dropout",
+        "name": "dropout_1",
+        "rate": 0.3
+      },
+      {
+        "index": 8,
+        "type": "Dense",
+        "name": "dense_2",
+        "units": 1,
+        "activation": "linear",
+        "params": 101
+      }
+    ]
+  }
+}
