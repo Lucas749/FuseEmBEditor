@@ -28,6 +28,7 @@ from .config import (
     FORECAST_BE,
     GRNA_KEY,
     GRNA_LENGTH,
+    GRNA_START,
     IGRNA_ABE,
     IGRNA_INPUT_SHAPE,
     LABEL_KEY,
@@ -46,6 +47,11 @@ def one_hot(sequence, bases):
         if base in mapping:
             encoded[index, mapping[base]] = 1.0
     return encoded
+
+
+def locate_grna(sequence, grna):
+    start = sequence.find(grna)
+    return GRNA_START if start == -1 else start
 
 
 def forecast_features(grna):
@@ -68,7 +74,7 @@ def igrna_features(fields):
     from .models.igrna_abe.fuc import get_align
 
     grna = fields[GRNA_KEY]
-    if len(grna) != GRNA_LENGTH or fields[SEQUENCE_KEY].find(grna) == -1:
+    if len(grna) != GRNA_LENGTH:
         return None
     encoded = np.zeros(IGRNA_INPUT_SHAPE, dtype=np.float32)
     for index, features in enumerate(get_align(grna, grna)):
@@ -79,9 +85,9 @@ def igrna_features(fields):
 def bedict_sequence(fields):
     grna = fields[GRNA_KEY]
     sequence = fields[SEQUENCE_KEY]
-    grna_start = sequence.find(grna)
-    if len(grna) != GRNA_LENGTH or grna_start == -1:
+    if len(grna) != GRNA_LENGTH:
         return None
+    grna_start = locate_grna(sequence, grna)
 
     pam = fields[PAM_KEY]
     if len(pam) == 3:
@@ -96,9 +102,9 @@ def bedict_sequence(fields):
 def deepbe_sequence(fields):
     grna = fields[GRNA_KEY]
     sequence = fields[SEQUENCE_KEY]
-    grna_start = sequence.find(grna)
-    if len(grna) != GRNA_LENGTH or grna_start == -1:
+    if len(grna) != GRNA_LENGTH:
         return None
+    grna_start = locate_grna(sequence, grna)
 
     start = max(0, grna_start - 4)
     end = min(len(sequence), grna_start + GRNA_LENGTH + len(fields[PAM_KEY]) + 3)
